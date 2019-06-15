@@ -126,7 +126,7 @@ public class MemberViewController implements Initializable {
 			if(searched.size() > 0) {
 				int no = 1;
 				for(Member m : searched) {
-					taFindResult.appendText(no++ + " ) " + m.getAddress() + " : " + m.getEmail() + " : " + m.getName() + " \n");
+					taFindResult.appendText(no++ + " ) " + m.getAddress() + " : " + m.getEmail() + " : " + m.getName() + m.getAge()+" \n");
 				}
 			}
 			else
@@ -145,7 +145,7 @@ public class MemberViewController implements Initializable {
 			if(searched.size() > 0) {
 				int no = 1;
 				for(Member m : searched) {
-					taFindResult.appendText(no++ + " ) " + m.getAddress() + " : " + m.getEmail() + " : " + m.getName() + " \n");
+					taFindResult.appendText(no++ + " ) " + m.getAddress() + " : " + m.getEmail() + " : " + m.getName() +m.getAge()+ " \n");
 				}
 			}
 			else
@@ -161,7 +161,7 @@ public class MemberViewController implements Initializable {
 		if(checkValidForm()) {			
 			Member newMember = 
 					new Member(tfEmail.getText(), tfPw.getText(), tfName.getText(), 
-							tfBirth.getText(), "20", tfAddress.getText(), tfContact.getText()); // 7개 필드임
+							tfBirth.getText(), "", tfAddress.getText(), tfContact.getText()); // 7개 필드임
 			if(memberService.findByEmail(newMember)<0) {
 			data.add(newMember);			
 			tableViewMember.setItems(data);
@@ -178,7 +178,7 @@ public class MemberViewController implements Initializable {
 	@FXML 
 	private void handleUpdate() {
 		Member newMember = new Member(tfEmail.getText(), tfPw.getText(), tfName.getText(), 
-				tfBirth.getText(), "20", tfAddress.getText(), tfContact.getText());
+				tfBirth.getText(), "", tfAddress.getText(), tfContact.getText());
 
 		int selectedIndex = tableViewMember.getSelectionModel().getSelectedIndex();
 		if(selectedIndex != memberService.findByEmail(newMember)) {

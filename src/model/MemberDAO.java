@@ -102,7 +102,7 @@ public class MemberDAO {
 		int ret = -1; // 0 이상이면 해당 아이디가 존재하므로 수정, -1이하이면 수정 실패		
 		try {
 			int index = searchByID(member);
-			if(index > 0) { // -1이면 검색 실패, 등록 가능함
+			if(index >= 0) { // -1이면 검색 실패, 등록 가능함
 				String bir = member.getBirth().substring(0, 4); //나이
 	            String a = Integer.toString(year - Integer.valueOf(bir)+1);//나이
 	            member.setAge(a);//나이
@@ -121,7 +121,7 @@ public class MemberDAO {
 		int ret = -1; // 0 이상이면 해당 아이디가 존재하므로 삭제, -1이하이면 삭제 실패
 		try {
 			int index = searchByID(member);
-			if(index > 0) { // -1이면 검색 실패, 등록 가능함
+			if(index >= 0) { // -1이면 검색 실패, 등록 가능함
 				fw = new MemberFileWriter(file);
 				memberList.remove(member);
 				fw.saveMember(memberList);
