@@ -38,6 +38,7 @@ public class MemberViewController implements Initializable {
 	@FXML	private TextField tfBirth;
 	@FXML	private TextField tfAddress;
 	@FXML	private TextField tfContact;
+	@FXML	private TextField tfSex; //성별
 	
 	@FXML 	private TableView<Member> tableViewMember;
 	@FXML	private TableColumn<Member, String> columnEmail;
@@ -47,6 +48,7 @@ public class MemberViewController implements Initializable {
 	@FXML	private TableColumn<Member, String> columnAge;
 	@FXML	private TableColumn<Member, String> columnAddress;
 	@FXML	private TableColumn<Member, String> columnContact;
+	@FXML	private TableColumn<Member, String> columnSex; //성별
 	
 	
 	// Member : model이라고도 하고 DTO, VO 라고도 함
@@ -74,6 +76,8 @@ public class MemberViewController implements Initializable {
 		columnAddress.setCellValueFactory(cvf -> cvf.getValue().addressProperty());
 		columnContact.setCellValueFactory(cvf -> cvf.getValue().contactProperty());
 		
+		columnSex.setCellValueFactory(cvf -> cvf.getValue().sexProperty()); //성별 연동
+		
 		tableViewMember.getSelectionModel().selectedItemProperty().addListener(
 				(observable, oldValue, newValue) -> showMemberInfo(newValue));
 
@@ -93,9 +97,16 @@ public class MemberViewController implements Initializable {
 			tfBirth.setText(member.getBirth());
 			tfAddress.setText(member.getAddress());
 			tfContact.setText(member.getContact());
+			tfSex.setText(member.getSex());
 		}
 		else {
-			
+		tfEmail.setText("");
+		tfPw.setText("");
+		tfName.setText("");
+		tfBirth.setText("");
+		tfAddress.setText("");
+		tfContact.setText("");
+		tfSex.setText("");			
 		}
 	}
 	
@@ -161,7 +172,7 @@ public class MemberViewController implements Initializable {
 		if(checkValidForm()) {			
 			Member newMember = 
 					new Member(tfEmail.getText(), tfPw.getText(), tfName.getText(), 
-							tfBirth.getText(), "", tfAddress.getText(), tfContact.getText()); // 7개 필드임
+							tfBirth.getText(), "", tfAddress.getText(), tfContact.getText(),checkSex()); // 7개 필드임
 			if(memberService.findByEmail(newMember)<0) {
 			data.add(newMember);			
 			tableViewMember.setItems(data);
@@ -169,28 +180,25 @@ public class MemberViewController implements Initializable {
 			}
 			else {
 				showAlert("이메일이 중복됩니다.");
-			}
-			
-
-		} else
-			showAlert("필수항목 완벽한 입력 ");
+			}			
+		} 
 	}
 	@FXML 
-	private void handleUpdate() {
-		Member newMember = new Member(tfEmail.getText(), tfPw.getText(), tfName.getText(), 
-				tfBirth.getText(), "", tfAddress.getText(), tfContact.getText());
+	   private void handleUpdate() {
+	      Member newMember = new Member(tfEmail.getText(), tfPw.getText(), tfName.getText(), 
+	            tfBirth.getText(), "", tfAddress.getText(), tfContact.getText(),checkSex());
 
-		int selectedIndex = tableViewMember.getSelectionModel().getSelectedIndex();
-		if(selectedIndex != memberService.findByEmail(newMember)) {
-			showAlert("이메일을 수정하면 업데이트할수 없습니다");
-		}
-		if (selectedIndex >= 0) {
-			tableViewMember.getItems().set(selectedIndex, newMember);
-			memberService.update(newMember);			
-		} else {
-			showAlert("수정 실패");          
-        }
-	}	
+	      int selectedIndex = tableViewMember.getSelectionModel().getSelectedIndex();
+	      if(selectedIndex != memberService.findByEmail(newMember)){
+	         showAlert("EMAIL은 수정할 수 없습니다.");
+	      }
+	      else if (selectedIndex >= 0) {
+	         tableViewMember.getItems().set(selectedIndex, newMember);
+	         memberService.update(newMember);         
+	      } else {
+	         showAlert("수정 실패");          
+	        }
+	   }   
 	@FXML 
 	private void handleDelete() {
 		int selectedIndex = tableViewMember.getSelectionModel().getSelectedIndex();
@@ -210,7 +218,17 @@ public class MemberViewController implements Initializable {
 	}
 
 	private Main mainApp;
-
+	
+	
+	private String checkSex() {
+		if(tfSex.getText().equals("0"))
+			return "남자";
+		else if(tfSex.getText().equals("1"))
+			return "여자";
+		return null;
+	}
+	
+	
     public void setMainApp(Main mainApp) {
         this.mainApp = mainApp;
     }

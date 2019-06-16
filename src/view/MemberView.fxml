@@ -27,6 +27,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="이메일" textFill="WHITE">
@@ -59,27 +60,34 @@
                   <Font name="System Bold" size="15.0" />
                </font></Label>
             <TextField fx:id="tfContact" promptText="휴대폰(- 없이)" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label text="성별" textFill="WHITE" GridPane.rowIndex="6">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfSex" promptText="남자(0)여자(1)" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
       </GridPane>
-            <Button id="btnRegister" fx:id="btnCreate" layoutX="14.0" layoutY="254.0" mnemonicParsing="false" onMouseClicked="#handleCreate" prefHeight="29.0" prefWidth="65.0" text="등록" />
-      <Button id="btnUpdate" fx:id="btnUpdate" layoutX="94.0" layoutY="254.0" mnemonicParsing="false" onMouseClicked="#handleUpdate" prefHeight="29.0" prefWidth="65.0" text="수정" />
-      <Button id="btnDelete" fx:id="btnDelete" layoutX="173.0" layoutY="254.0" mnemonicParsing="false" onMouseClicked="#handleDelete" prefHeight="29.0" prefWidth="65.0" text="삭제" />
+            <Button id="btnRegister" fx:id="btnCreate" layoutX="14.0" layoutY="293.0" mnemonicParsing="false" onMouseClicked="#handleCreate" prefHeight="29.0" prefWidth="65.0" text="등록" />
+      <Button id="btnUpdate" fx:id="btnUpdate" layoutX="95.0" layoutY="293.0" mnemonicParsing="false" onMouseClicked="#handleUpdate" prefHeight="29.0" prefWidth="65.0" text="수정" />
+      <Button id="btnDelete" fx:id="btnDelete" layoutX="171.0" layoutY="293.0" mnemonicParsing="false" onMouseClicked="#handleDelete" prefHeight="29.0" prefWidth="65.0" text="삭제" />
       
-      <TableView fx:id="tableViewMember" layoutX="246.0" layoutY="26.0" prefHeight="347.0" prefWidth="631.0">
+      <TableView fx:id="tableViewMember" layoutX="246.0" layoutY="26.0" prefHeight="381.0" prefWidth="631.0">
         <columns>
-          <TableColumn fx:id="columnEmail" minWidth="100.0" prefWidth="139.0" text="이메일" />
-          <TableColumn fx:id="columnPw" prefWidth="62.0" text="암호" />
-            <TableColumn fx:id="columnName" prefWidth="78.0" text="이름" />
-            <TableColumn fx:id="columnBirth" minWidth="85.0" prefWidth="85.0" text="생년월일" />
+          <TableColumn fx:id="columnEmail" minWidth="44.0" prefWidth="146.0" text="이메일" />
+          <TableColumn fx:id="columnPw" minWidth="0.0" prefWidth="52.0" text="암호" />
+            <TableColumn fx:id="columnName" prefWidth="63.0" text="이름" />
+            <TableColumn fx:id="columnBirth" minWidth="85.0" prefWidth="103.0" text="생년월일" />
             <TableColumn fx:id="columnAge" prefWidth="42.0" text="나이" />
-            <TableColumn fx:id="columnAddress" prefWidth="106.0" text="주소" />
-            <TableColumn fx:id="columnContact" minWidth="100.0" prefWidth="118.0" text="연락처" />
+            <TableColumn fx:id="columnAddress" prefWidth="76.0" text="주소" />
+            <TableColumn fx:id="columnContact" minWidth="17.0" prefWidth="82.0" text="연락처" />
+            <TableColumn fx:id="columnSex" minWidth="17.0" prefWidth="66.0" text="성별" />
         </columns>
       </TableView>
-      <TextArea fx:id="taFindResult" layoutX="14.0" layoutY="378.0" minWidth="-Infinity" prefHeight="147.0" prefWidth="863.0" />
-      <TextField fx:id="tfFindCondition" layoutX="14.0" layoutY="301.0" prefHeight="29.0" prefWidth="153.0" promptText="검색조건" />
-      <Button fx:id="btnFindByName" layoutX="94.0" layoutY="337.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="65.0" text="이름" />
-      <Button fx:id="btnFindByAddress" layoutX="14.0" layoutY="337.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="65.0" text="주소" />
+      <TextArea fx:id="taFindResult" layoutX="14.0" layoutY="418.0" minWidth="-Infinity" prefHeight="107.0" prefWidth="863.0" />
+      <TextField fx:id="tfFindCondition" layoutX="18.0" layoutY="330.0" prefHeight="29.0" prefWidth="153.0" promptText="검색조건" />
+      <Button fx:id="btnFindByName" layoutX="94.0" layoutY="373.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="65.0" text="이름" />
+      <Button fx:id="btnFindByAddress" layoutX="14.0" layoutY="373.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="65.0" text="주소" />
       <Label layoutX="252.0" layoutY="525.0" prefHeight="21.0" prefWidth="360.0" text="Copyright. @2019 전재준 (201612058)" textFill="#422bb5">
          <font>
             <Font name="System Italic" size="18.0" />

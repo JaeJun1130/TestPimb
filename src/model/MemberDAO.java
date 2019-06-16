@@ -86,7 +86,7 @@ public class MemberDAO {
 			if(index < 0) { // -1이면 검색 실패, 등록 가능함
 				String bir = member.getBirth().substring(0, 4);//나이
 	            String a = Integer.toString(year - Integer.valueOf(bir)+1);//나이
-	            member.setAge(a);//나이
+	            member.setAge(a);//나이	            
 				fw = new MemberFileWriter(file);
 				memberList.add(member);
 				fw.saveMember(memberList);

@@ -11,16 +11,18 @@ public class Member { // DB의 레코드와 매핑되는 객체
 	private StringProperty age; // 만 나이 아님, 2018년 06월 15일 태어난 사람은 2019년 6월 15일에 2살임
 	private StringProperty address; // 서울북부, 서울남부, 경기북부, 경기남부, 인천, 그외지역
 	private StringProperty contact;
+	
+	private StringProperty sex; //성별
 	/*
     private final IntegerProperty zipcode;
     private ObjectProperty<LocalDate> birthday;
 	*/
 	public Member() {
-		this(" ", " ", " ", " ", " ", " ", " ");
+		this(" ", " ", " ", " ", " ", " ", " "," ");
 	}
 	
 	public Member(String email, String pw, String name, String birth,
-			String age, String address, String contact) {
+			String age, String address, String contact, String sex) {
 		this.email = new SimpleStringProperty(email);
 		this.pw = new SimpleStringProperty(pw);
 		this.name = new SimpleStringProperty(name);
@@ -28,6 +30,8 @@ public class Member { // DB의 레코드와 매핑되는 객체
 		this.age = new SimpleStringProperty(age);
 		this.address = new SimpleStringProperty(address);
 		this.contact = new SimpleStringProperty(contact);
+		
+		this.sex = new SimpleStringProperty(sex);
 	}
 
 	public String getEmail() {
@@ -100,5 +104,15 @@ public class Member { // DB의 레코드와 매핑되는 객체
 	}
     public StringProperty contactProperty() {
         return contact;
+    }
+    
+    public String getSex() { //성별
+		return this.sex.get();
+	}	
+	public void setSex(String sex) {  //성별
+		this.sex.set(sex);
+	}
+    public StringProperty sexProperty() { //성별
+        return sex;
     }
 }
