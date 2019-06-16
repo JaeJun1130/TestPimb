@@ -74,14 +74,14 @@
       
       <TableView fx:id="tableViewMember" layoutX="246.0" layoutY="26.0" prefHeight="381.0" prefWidth="631.0">
         <columns>
-          <TableColumn fx:id="columnEmail" minWidth="44.0" prefWidth="146.0" text="이메일" />
-          <TableColumn fx:id="columnPw" minWidth="0.0" prefWidth="52.0" text="암호" />
-            <TableColumn fx:id="columnName" prefWidth="63.0" text="이름" />
-            <TableColumn fx:id="columnBirth" minWidth="85.0" prefWidth="103.0" text="생년월일" />
-            <TableColumn fx:id="columnAge" prefWidth="42.0" text="나이" />
-            <TableColumn fx:id="columnAddress" prefWidth="76.0" text="주소" />
-            <TableColumn fx:id="columnContact" minWidth="17.0" prefWidth="82.0" text="연락처" />
-            <TableColumn fx:id="columnSex" minWidth="17.0" prefWidth="66.0" text="성별" />
+          <TableColumn fx:id="columnEmail" minWidth="44.0" prefWidth="101.0" text="이메일" />
+          <TableColumn fx:id="columnPw" minWidth="0.0" prefWidth="48.0" text="암호" />
+            <TableColumn fx:id="columnName" prefWidth="66.0" text="이름" />
+            <TableColumn fx:id="columnBirth" minWidth="85.0" prefWidth="102.0" text="생년월일" />
+            <TableColumn fx:id="columnAge" prefWidth="53.0" text="나이" />
+            <TableColumn fx:id="columnAddress" prefWidth="82.0" text="주소" />
+            <TableColumn fx:id="columnContact" minWidth="17.0" prefWidth="114.0" text="연락처" />
+            <TableColumn fx:id="columnSex" minWidth="17.0" prefWidth="64.0" text="성별" />
         </columns>
       </TableView>
       <TextArea fx:id="taFindResult" layoutX="14.0" layoutY="418.0" minWidth="-Infinity" prefHeight="107.0" prefWidth="863.0" />

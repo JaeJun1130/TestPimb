@@ -165,7 +165,7 @@ public class MemberViewController implements Initializable {
 		else
 			this.showAlert("검색 조건을 입력하십시요");			
 	}
-	
+		
 	
 	@FXML 
 	private void handleCreate() { // event source, listener, handler
